@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>জাতীয় মেধাবৃত্তি পরীক্ষা ২০২৬</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          sky:     { DEFAULT: '#3FA9E8', light: '#EAF7FF', dark: '#1B2A4A' },
+          sun:     { DEFAULT: '#FFC93C', dark: '#F2A400', light: '#FFF3D2' },
+          coral:   { DEFAULT: '#FF6B5B', dark: '#E24B3C', light: '#FFE4DF' },
+          mint:    { DEFAULT: '#2FBF8F', dark: '#1E9C71', light: '#DFF7EE' },
+          navy:    '#1B2A4A',
+          paper:   '#FFFBF0',
+          kite:    '#8B7FD6',
+        },
+        fontFamily: {
+          display: ['"Baloo Da 2"', 'sans-serif'],
+          body:    ['"Hind Siliguri"', 'sans-serif'],
+          num:     ['"Fredoka"', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { background: #FFFBF0; }
+  .font-display { font-family: 'Baloo Da 2', sans-serif; }
+  .font-body { font-family: 'Hind Siliguri', sans-serif; }
+  .font-num { font-family: 'Fredoka', sans-serif; }
+
+  ::selection { background: #FFC93C; color: #1B2A4A; }
+
+  /* ---- motion ---- */
+  .kite-float { animation: kiteFloat 5s ease-in-out infinite; }
+  .kite-float-slow { animation: kiteFloat 7s ease-in-out infinite; }
+  .kite-float-rev { animation: kiteFloatRev 6s ease-in-out infinite; }
+  @keyframes kiteFloat { 0%,100%{ transform: translate(0,0) rotate(-4deg);} 50%{ transform: translate(6px,-16px) rotate(4deg);} }
+  @keyframes kiteFloatRev { 0%,100%{ transform: translate(0,0) rotate(5deg);} 50%{ transform: translate(-8px,-12px) rotate(-3deg);} }
+
+  .cloud-drift { animation: cloudDrift 22s linear infinite; }
+  .cloud-drift-2 { animation: cloudDrift 30s linear infinite reverse; }
+  @keyframes cloudDrift { 0%{ transform: translateX(0);} 50%{ transform: translateX(24px);} 100%{ transform: translateX(0);} }
+
+  .sun-pulse circle.core { animation: sunPulse 3.5s ease-in-out infinite; transform-origin:center; }
+  @keyframes sunPulse { 0%,100%{ transform: scale(1);} 50%{ transform: scale(1.06);} }
+
+  .owl-blink { animation: owlBlink 4.5s infinite; transform-origin:center; }
+  @keyframes owlBlink { 0%,92%,100%{ transform: scaleY(1);} 95%{ transform: scaleY(0.12);} }
+
+  .bunting-wave { animation: buntingWave 3s ease-in-out infinite; transform-origin: top center; }
+  .bunting-wave:nth-child(even) { animation-delay: .3s; }
+  @keyframes buntingWave { 0%,100%{ transform: rotate(-3deg);} 50%{ transform: rotate(3deg);} }
+
+  .twinkle { animation: twinkle 2.6s ease-in-out infinite; }
+  @keyframes twinkle { 0%,100%{ opacity:.3;} 50%{ opacity:1;} }
+
+  .card-lift { transition: transform .25s ease, box-shadow .25s ease; }
+  .card-lift:hover { transform: translateY(-6px) rotate(-0.4deg); }
+
+  /* ---- ticket punch-holes ---- */
+  .ticket { position: relative; }
+  .ticket::before, .ticket::after {
+    content: ""; position: absolute; width: 22px; height: 22px; border-radius: 999px;
+    background: #FFFBF0; top: 50%; transform: translateY(-50%);
+  }
+  .ticket::before { left: -11px; }
+  .ticket::after { right: -11px; }
+  .ticket-divider {
+    border-left: 2.5px dashed rgba(27,42,74,0.18);
+  }
+
+  /* ---- kite string path (desktop) ---- */
+  .kite-path { position: relative; }
+  .kite-path svg.string { position:absolute; top:38px; left:0; width:100%; height:40px; z-index:0; }
+</style>
+</head>
+<body class="font-body text-navy antialiased">
+
+<!-- ================= NAVBAR ================= -->
+<header class="sticky top-0 z-50 bg-paper/90 backdrop-blur border-b-2 border-navy/10">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2 shrink-0 hover:opacity-90 transition-opacity" aria-label="Home">
+      <svg width="46" height="46" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="30" fill="#EAF7FF"/>
+        <path d="M32 8 L38 20 L32 32 L26 20 Z" fill="#FF6B5B"/>
+        <path d="M32 32 Q30 42 32 52" stroke="#F2A400" stroke-width="2" fill="none" stroke-dasharray="2 3"/>
+        <circle cx="32" cy="52" r="2.4" fill="#F2A400"/>
+        <ellipse cx="32" cy="30" rx="13" ry="12" fill="#1B2A4A"/>
+        <circle cx="27" cy="29" r="4" fill="#fff"/><circle cx="37" cy="29" r="4" fill="#fff"/>
+        <circle cx="27" cy="29" r="1.8" fill="#1B2A4A"/><circle cx="37" cy="29" r="1.8" fill="#1B2A4A"/>
+        <path d="M22 22 Q32 14 42 22" stroke="#FFC93C" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="font-display font-bold text-sm md:text-base text-navy leading-tight">মেধাবৃত্তি<br class="hidden sm:block">২০২৬</span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-7 font-display text-base text-navy/80 font-semibold">
+      <a href="#top" class="hover:text-coral transition-colors">হোম</a>
+      <a href="#process" class="hover:text-coral transition-colors">প্রক্রিয়া</a>
+      <a href="#rewards" class="hover:text-coral transition-colors">পুরস্কার</a>
+      <a href="#rules" class="hover:text-coral transition-colors">নিয়মাবলী</a>
+      <a href="#history" class="hover:text-coral transition-colors">আর্কাইভ</a>
+      <a href="#footer" class="hover:text-coral transition-colors">যোগাযোগ</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button class="font-display text-sm font-semibold px-4 py-2 rounded-full text-navy hover:bg-navy/5 transition-colors">লগইন</button>
+      <button class="font-display text-sm font-bold bg-coral text-white hover:bg-coral-dark px-5 py-2.5 rounded-full shadow-sm transition-colors">রেজিস্ট্রেশন</button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="top" class="relative overflow-hidden bg-gradient-to-b from-sky-light via-sky-light to-paper pb-14 md:pb-20">
+
+  <!-- bunting -->
+  <div class="max-w-7xl mx-auto px-5 md:px-8 pt-4">
+    <div class="flex justify-center gap-1.5 md:gap-2 opacity-90">
+      <svg class="bunting-wave" width="26" height="30" viewBox="0 0 26 30"><path d="M0 0 H26 L13 30 Z" fill="#FF6B5B"/></svg>
+      <svg class="bunting-wave" width="26" height="30" viewBox="0 0 26 30"><path d="M0 0 H26 L13 30 Z" fill="#FFC93C"/></svg>
+      <svg class="bunting-wave" width="26" height="30" viewBox="0 0 26 30"><path d="M0 0 H26 L13 30 Z" fill="#2FBF8F"/></svg>
+      <svg class="bunting-wave" width="26" height="30" viewBox="0 0 26 30"><path d="M0 0 H26 L13 30 Z" fill="#3FA9E8"/></svg>
+      <svg class="bunting-wave" width="26" height="30" viewBox="0 0 26 30"><path d="M0 0 H26 L13 30 Z" fill="#8B7FD6"/></svg>
+      <svg class="bunting-wave" width="26" height="30" viewBox="0 0 26 30"><path d="M0 0 H26 L13 30 Z" fill="#FF6B5B"/></svg>
+      <svg class="bunting-wave" width="26" height="30" viewBox="0 0 26 30"><path d="M0 0 H26 L13 30 Z" fill="#FFC93C"/></svg>
+      <svg class="bunting-wave" width="26" height="30" viewBox="0 0 26 30"><path d="M0 0 H26 L13 30 Z" fill="#2FBF8F"/></svg>
+      <svg class="bunting-wave" width="26" height="30" viewBox="0 0 26 30"><path d="M0 0 H26 L13 30 Z" fill="#3FA9E8"/></svg>
+    </div>
+  </div>
+
+  <!-- decorative sky elements -->
+  <svg class="cloud-drift absolute top-24 left-4 md:left-10 opacity-90" width="110" height="50" viewBox="0 0 110 50"><ellipse cx="30" cy="30" rx="30" ry="18" fill="#fff"/><ellipse cx="60" cy="22" rx="24" ry="16" fill="#fff"/><ellipse cx="82" cy="30" rx="22" ry="14" fill="#fff"/></svg>
+  <svg class="cloud-drift-2 absolute top-40 right-6 md:right-16 opacity-80" width="90" height="42" viewBox="0 0 90 42"><ellipse cx="26" cy="26" rx="26" ry="15" fill="#fff"/><ellipse cx="52" cy="18" rx="20" ry="13" fill="#fff"/><ellipse cx="70" cy="26" rx="18" ry="12" fill="#fff"/></svg>
+  <svg class="kite-float-rev absolute top-16 right-8 md:right-24 opacity-95" width="34" height="46" viewBox="0 0 34 46"><path d="M17 0 L34 18 L17 46 L0 18 Z" fill="#8B7FD6"/><path d="M17 46 Q14 52 17 58" stroke="#8B7FD6" stroke-width="1.6" fill="none"/></svg>
+  <svg class="kite-float absolute bottom-8 left-10 md:left-24 opacity-90 hidden sm:block" width="28" height="38" viewBox="0 0 28 38"><path d="M14 0 L28 15 L14 38 L0 15 Z" fill="#2FBF8F"/></svg>
+
+  <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
+    <div class="grid lg:grid-cols-12 gap-12 items-center mt-8">
+
+      <!-- Left: text -->
+      <div class="lg:col-span-7 text-left">
+        <div class="inline-flex items-center gap-2 bg-white text-navy/80 font-display text-xs md:text-sm px-4 py-1.5 rounded-full mb-6 font-semibold shadow-sm border border-navy/5">
+          <span class="w-2 h-2 rounded-full bg-coral"></span>
+          আয়োজনে: বাংলাদেশ প্রাইভেট মাদ্রাসা ওয়েলফেয়ার সোসাইটি
+        </div>
+
+        <h1 class="font-display font-extrabold text-navy text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.1]">
+          তোমার স্বপ্নের ঘুড়ি<br class="hidden sm:block"> ওড়াও আকাশে <span class="text-coral">🪁</span>
+        </h1>
+        <p class="font-display font-bold text-sun-dark text-xl md:text-2xl mt-2">জাতীয় মেধাবৃত্তি পরীক্ষা ২০২৬</p>
+
+        <p class="font-body text-navy/70 text-base md:text-lg mt-4 max-w-xl">
+          প্রাথমিক, মাধ্যমিক ও মাদ্রাসা পর্যায়ের মেধাবী শিক্ষার্থীদের জন্য দেশব্যাপী বৃত্তি পরীক্ষা — মেধা যাচাই করো, স্বপ্ন পূরণ করো।
+        </p>
+
+        <!-- Countdown as boarding-pass stubs -->
+        <div class="mt-8">
+          <p class="font-display text-xs tracking-wide text-navy/50 mb-3 font-semibold">✈️ রেজিস্ট্রেশনের উড়ান ছাড়তে বাকি</p>
+          <div id="countdown" class="flex flex-wrap gap-3">
+            <div class="bg-white border-2 border-navy/10 rounded-2xl px-4 py-3 text-center min-w-[68px] shadow-sm">
+              <p id="cd-days" class="font-num font-semibold text-2xl text-coral">00</p>
+              <p class="font-display text-[11px] text-navy/50 mt-0.5 font-semibold">দিন</p>
+            </div>
+            <div class="bg-white border-2 border-navy/10 rounded-2xl px-4 py-3 text-center min-w-[68px] shadow-sm">
+              <p id="cd-hours" class="font-num font-semibold text-2xl text-mint-dark">00</p>
+              <p class="font-display text-[11px] text-navy/50 mt-0.5 font-semibold">ঘণ্টা</p>
+            </div>
+            <div class="bg-white border-2 border-navy/10 rounded-2xl px-4 py-3 text-center min-w-[68px] shadow-sm">
+              <p id="cd-mins" class="font-num font-semibold text-2xl text-sky-dark">00</p>
+              <p class="font-display text-[11px] text-navy/50 mt-0.5 font-semibold">মিনিট</p>
+            </div>
+            <div class="bg-navy text-white rounded-2xl px-4 py-3 text-center min-w-[68px] shadow-sm">
+              <p id="cd-secs" class="font-num font-semibold text-2xl text-sun">00</p>
+              <p class="font-display text-[11px] text-white/70 mt-0.5 font-semibold">সেকেন্ড</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <a href="#process" class="inline-flex items-center justify-center font-display font-bold text-base bg-coral text-white hover:bg-coral-dark px-8 py-3.5 rounded-full shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">
+            এখনই রেজিস্ট্রেশন করো 🪁
+          </a>
+          <span class="font-display text-xs text-navy/50 font-semibold">ফি মাত্র ১০০ টাকা · বিকাশ/নগদ/রকেট</span>
+        </div>
+      </div>
+
+      <!-- Right: mascot -->
+      <div class="lg:col-span-5 flex flex-col items-center justify-center">
+        <div class="relative w-full max-w-sm">
+          <div class="bg-white/70 backdrop-blur border-2 border-white rounded-[2rem] p-6 shadow-lg flex items-center justify-center">
+            <svg width="210" height="210" viewBox="0 0 160 160">
+              <ellipse cx="80" cy="146" rx="42" ry="6" fill="#1B2A4A" opacity="0.08"/>
+              <!-- sun behind -->
+              <g class="sun-pulse">
+                <circle class="core" cx="128" cy="30" r="16" fill="#FFC93C"/>
+                <g stroke="#FFC93C" stroke-width="3" stroke-linecap="round">
+                  <line x1="128" y1="4" x2="128" y2="10"/>
+                  <line x1="128" y1="50" x2="128" y2="56"/>
+                  <line x1="102" y1="30" x2="108" y2="30"/>
+                  <line x1="148" y1="30" x2="154" y2="30"/>
+                </g>
+              </g>
+              <!-- kite trailing behind owl -->
+              <path d="M96 44 L110 30 L96 16 L82 30 Z" fill="#FF6B5B"/>
+              <path d="M96 44 Q92 60 96 76" stroke="#F2A400" stroke-width="2" fill="none" stroke-dasharray="2 3"/>
+              <!-- wings -->
+              <ellipse cx="35" cy="92" rx="14" ry="24" fill="#2FBF8F" transform="rotate(-30 35 92)"/>
+              <ellipse cx="125" cy="92" rx="14" ry="24" fill="#2FBF8F" transform="rotate(30 125 92)"/>
+              <!-- body -->
+              <ellipse cx="80" cy="92" rx="36" ry="34" fill="#1B2A4A"/>
+              <ellipse cx="80" cy="86" rx="26" ry="22" fill="#E7ECF5" opacity="0.15"/>
+              <!-- grad cap -->
+              <path d="M80 44 L112 58 L80 72 L48 58 Z" fill="#1B2A4A"/>
+              <path d="M80 44 L112 58 L80 72 L48 58 Z" fill="#0F1B33"/>
+              <rect x="76" y="58" width="8" height="4" fill="#F2A400"/>
+              <path d="M105 60 L105 74" stroke="#FFC93C" stroke-width="2.5"/>
+              <circle cx="105" cy="76" r="3" fill="#FFC93C"/>
+              <!-- face -->
+              <g class="owl-blink">
+                <circle cx="66" cy="90" r="13" fill="#fff"/>
+                <circle cx="94" cy="90" r="13" fill="#fff"/>
+                <circle cx="66" cy="90" r="6" fill="#1B2A4A"/>
+                <circle cx="94" cy="90" r="6" fill="#1B2A4A"/>
+              </g>
+              <path d="M75 100 Q80 106 85 100" stroke="#FFC93C" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M80 90 L80 100 L72 100 Z" fill="#F2A400"/>
+              <!-- book -->
+              <g transform="translate(52,114)">
+                <rect x="0" y="0" width="56" height="16" rx="2" fill="#FF6B5B"/>
+                <rect x="0" y="0" width="28" height="16" rx="2" fill="#E24B3C"/>
+                <line x1="28" y1="2" x2="28" y2="14" stroke="#fff" stroke-width="1.5"/>
+              </g>
+            </svg>
+          </div>
+
+          <div class="mt-4 w-full bg-white border-2 border-navy/5 p-4 rounded-2xl shadow-sm flex items-center gap-3">
+            <div class="flex -space-x-2 shrink-0">
+              <div class="w-8 h-8 rounded-full ring-2 ring-white bg-coral flex items-center justify-center text-white font-display text-xs font-bold">তা</div>
+              <div class="w-8 h-8 rounded-full ring-2 ring-white bg-sky flex items-center justify-center text-white font-display text-xs font-bold">রা</div>
+              <div class="w-8 h-8 rounded-full ring-2 ring-white bg-sun flex items-center justify-center text-navy font-display text-xs font-bold">মি</div>
+              <div class="w-8 h-8 rounded-full ring-2 ring-white bg-mint flex items-center justify-center text-white font-display text-xs font-bold">+</div>
+            </div>
+            <p class="font-body text-xs text-navy/80 leading-tight">বিগত বছরে <span class="font-bold text-coral">১,০০০+ শিক্ষার্থী</span> পুরস্কৃত হয়েছে! 🎉</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= REGISTRATION PROCESS — kite string path ================= -->
+<section id="process" class="bg-white py-16 md:py-24 border-y-2 border-navy/5">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+    <div class="text-center mb-14">
+      <p class="font-display text-xs tracking-widest text-coral font-bold uppercase mb-2">ঘুড়ির সুতো ধরে এগিয়ে চলো</p>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-navy">রেজিস্ট্রেশন প্রক্রিয়া</h2>
+    </div>
+
+    <div class="kite-path grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+      <svg class="string hidden lg:block" viewBox="0 0 1000 40" preserveAspectRatio="none">
+        <path d="M60 10 Q 250 40 470 10 T 940 10" stroke="#F2A400" stroke-width="2.5" fill="none" stroke-dasharray="6 6"/>
+      </svg>
+
+      <div class="card-lift relative z-10 bg-sky-light rounded-2xl p-6 pt-9 border-2 border-sky/20">
+        <div class="absolute -top-5 left-6 w-11 h-11 rounded-full bg-white shadow-sm flex items-center justify-center text-xl">📝</div>
+        <p class="font-num text-xs text-sky-dark font-semibold mb-1">ধাপ ১</p>
+        <h3 class="font-display font-bold text-lg text-navy mb-1">ফর্ম পূরণ</h3>
+        <p class="font-body text-sm text-navy/60">শিক্ষার্থীর তথ্য দিয়ে অনলাইন ফর্ম পূরণ করো</p>
+      </div>
+
+      <div class="card-lift relative z-10 bg-coral-light rounded-2xl p-6 pt-9 border-2 border-coral/20">
+        <div class="absolute -top-5 left-6 w-11 h-11 rounded-full bg-white shadow-sm flex items-center justify-center text-xl">💳</div>
+        <p class="font-num text-xs text-coral-dark font-semibold mb-1">ধাপ ২</p>
+        <h3 class="font-display font-bold text-lg text-navy mb-1">ফি প্রদান</h3>
+        <p class="font-body text-sm text-navy/60">বিকাশ, নগদ বা রকেটে সহজে ফি জমা দাও</p>
+      </div>
+
+      <div class="card-lift relative z-10 bg-sun-light rounded-2xl p-6 pt-9 border-2 border-sun/30">
+        <div class="absolute -top-5 left-6 w-11 h-11 rounded-full bg-white shadow-sm flex items-center justify-center text-xl">🎫</div>
+        <p class="font-num text-xs text-sun-dark font-semibold mb-1">ধাপ ৩</p>
+        <h3 class="font-display font-bold text-lg text-navy mb-1">এডমিট কার্ড</h3>
+        <p class="font-body text-sm text-navy/60">নিজের এডমিট কার্ড ডাউনলোড করে প্রিন্ট করো</p>
+      </div>
+
+      <div class="card-lift relative z-10 bg-mint-light rounded-2xl p-6 pt-9 border-2 border-mint/25">
+        <div class="absolute -top-5 left-6 w-11 h-11 rounded-full bg-white shadow-sm flex items-center justify-center text-xl">🏫</div>
+        <p class="font-num text-xs text-mint-dark font-semibold mb-1">ধাপ ৪</p>
+        <h3 class="font-display font-bold text-lg text-navy mb-1">পরীক্ষায় অংশগ্রহণ</h3>
+        <p class="font-body text-sm text-navy/60">নির্ধারিত কেন্দ্রে গিয়ে সরাসরি পরীক্ষা দাও</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REWARDS ================= -->
+<section id="rewards" class="bg-sky-light/50 py-16 md:py-24 border-b-2 border-navy/5 relative overflow-hidden">
+  <svg class="kite-float absolute top-10 left-6 opacity-60 hidden md:block" width="30" height="40" viewBox="0 0 30 40"><path d="M15 0 L30 16 L15 40 L0 16 Z" fill="#8B7FD6"/></svg>
+  <svg class="kite-float-rev absolute bottom-10 right-8 opacity-50 hidden md:block" width="26" height="34" viewBox="0 0 26 34"><path d="M13 0 L26 14 L13 34 L0 14 Z" fill="#FF6B5B"/></svg>
+
+  <div class="max-w-6xl mx-auto px-5 md:px-8 relative z-10">
+    <div class="text-center mb-14">
+      <p class="font-display text-xs tracking-widest text-coral font-bold uppercase mb-2">বিভাগ অনুযায়ী</p>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-navy">পরীক্ষার বিভাগ ও পুরস্কার</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 items-start">
+
+      <!-- Category 1 -->
+      <div class="card-lift bg-white rounded-[1.75rem] p-6 border-2 border-navy/5 shadow-sm">
+        <div class="w-14 h-14 rounded-2xl bg-mint-light flex items-center justify-center text-2xl mb-4">🌱</div>
+        <h3 class="font-display font-bold text-xl text-navy mb-0.5">ইবতেদায়ী / প্রাথমিক</h3>
+        <p class="font-display text-xs text-navy/40 mb-4 font-semibold">৩য় - ৫ম শ্রেণি</p>
+        <ul class="space-y-2.5 font-body text-sm text-navy/75">
+          <li class="flex items-center gap-2"><span>🥇</span> ১ম স্থান: নগদ ৫,০০০৳ + ট্রফি</li>
+          <li class="flex items-center gap-2"><span>🥈</span> ২য় স্থান: নগদ ৩,০০০৳ + মেডেল</li>
+          <li class="flex items-center gap-2"><span>🥉</span> ৩য় স্থান: নগদ ২,০০০৳ + মেডেল</li>
+          <li class="flex items-center gap-2"><span>📜</span> সকলের জন্য মেধা সনদ</li>
+        </ul>
+      </div>
+
+      <!-- Category 2 — champion kite, elevated -->
+      <div class="card-lift md:-mt-4 bg-navy text-white rounded-[1.75rem] p-6 shadow-xl relative">
+        <div class="absolute -top-3 right-5 bg-sun text-navy text-[10px] font-display font-bold px-3 py-1 rounded-full uppercase shadow-sm">সবচেয়ে জনপ্রিয় 🪁</div>
+        <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-2xl mb-4">🌿</div>
+        <h3 class="font-display font-bold text-xl mb-0.5">জুনিয়র শাখা</h3>
+        <p class="font-display text-xs text-white/60 mb-4 font-semibold">৬ষ্ঠ - ৮ম শ্রেণি</p>
+        <ul class="space-y-2.5 font-body text-sm text-white/90">
+          <li class="flex items-center gap-2"><span>🥇</span> ১ম স্থান: নগদ ৮,০০০৳ + ট্রফি</li>
+          <li class="flex items-center gap-2"><span>🥈</span> ২য় স্থান: নগদ ৫,০০০৳ + মেডেল</li>
+          <li class="flex items-center gap-2"><span>🥉</span> ৩য় স্থান: নগদ ৩,৫০০৳ + মেডেল</li>
+          <li class="flex items-center gap-2"><span>📜</span> সকলের জন্য মেধা সনদ</li>
+        </ul>
+      </div>
+
+      <!-- Category 3 -->
+      <div class="card-lift bg-white rounded-[1.75rem] p-6 border-2 border-navy/5 shadow-sm">
+        <div class="w-14 h-14 rounded-2xl bg-sky-light flex items-center justify-center text-2xl mb-4">🌳</div>
+        <h3 class="font-display font-bold text-xl text-navy mb-0.5">সিনিয়র শাখা</h3>
+        <p class="font-display text-xs text-navy/40 mb-4 font-semibold">৯ম - ১০ম শ্রেণি / দাখিল</p>
+        <ul class="space-y-2.5 font-body text-sm text-navy/75">
+          <li class="flex items-center gap-2"><span>🥇</span> ১ম স্থান: নগদ ১২,০০০৳ + ট্রফি</li>
+          <li class="flex items-center gap-2"><span>🥈</span> ২য় স্থান: নগদ ৮,০০০৳ + মেডেল</li>
+          <li class="flex items-center gap-2"><span>🥉</span> ৩য় স্থান: নগদ ৫,০০০৳ + মেডেল</li>
+          <li class="flex items-center gap-2"><span>📜</span> সকলের জন্য মেধা সনদ</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= RULES — exam ticket stubs ================= -->
+<section id="rules" class="bg-white py-16 md:py-24 border-b-2 border-navy/5">
+  <div class="max-w-5xl mx-auto px-5 md:px-8">
+    <div class="text-center mb-14">
+      <p class="font-display text-xs tracking-widest text-coral font-bold uppercase mb-2">অংশগ্রহণের আগে জেনে নাও</p>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-navy">তোমার পরীক্ষার টিকেট</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-x-10 gap-y-6">
+      <div class="ticket flex bg-paper border-2 border-navy/10 rounded-xl overflow-hidden">
+        <div class="w-16 shrink-0 bg-sun flex items-center justify-center text-2xl">⏰</div>
+        <div class="ticket-divider px-5 py-4">
+          <p class="font-body text-sm text-navy/80">পরীক্ষার সময়সীমা <span class="font-bold text-navy">১ ঘণ্টা</span>, মোট ৫০টি MCQ প্রশ্ন থাকবে।</p>
+        </div>
+      </div>
+      <div class="ticket flex bg-paper border-2 border-navy/10 rounded-xl overflow-hidden">
+        <div class="w-16 shrink-0 bg-coral flex items-center justify-center text-2xl">🪪</div>
+        <div class="ticket-divider px-5 py-4">
+          <p class="font-body text-sm text-navy/80">পরীক্ষার দিন অবশ্যই <span class="font-bold text-navy">এডমিট কার্ড</span> সাথে আনতে হবে।</p>
+        </div>
+      </div>
+      <div class="ticket flex bg-paper border-2 border-navy/10 rounded-xl overflow-hidden">
+        <div class="w-16 shrink-0 bg-mint flex items-center justify-center text-2xl">✍️</div>
+        <div class="ticket-divider px-5 py-4">
+          <p class="font-body text-sm text-navy/80">প্রশ্নপত্র হবে সাধারণ জ্ঞান, বাংলা, ইংরেজি, গণিত ও ইসলামিক শিক্ষা থেকে।</p>
+        </div>
+      </div>
+      <div class="ticket flex bg-paper border-2 border-navy/10 rounded-xl overflow-hidden">
+        <div class="w-16 shrink-0 bg-sky flex items-center justify-center text-2xl">🔒</div>
+        <div class="ticket-divider px-5 py-4">
+          <p class="font-body text-sm text-navy/80">একজন শিক্ষার্থী শুধুমাত্র <span class="font-bold text-navy">একবার</span> রেজিস্ট্রেশন করতে পারবে।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HISTORY & BOARD ================= -->
+<section id="history" class="bg-sky-light/50 py-16 md:py-24 border-b-2 border-navy/5">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+
+    <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center mb-16">
+      <div class="lg:col-span-2 flex justify-center">
+        <div class="w-48 h-48 rounded-[1.75rem] bg-white border-2 border-navy/5 flex items-center justify-center shadow-sm">
+          <svg width="88" height="88" viewBox="0 0 64 64">
+            <ellipse cx="32" cy="36" rx="18" ry="17" fill="#1B2A4A"/>
+            <path d="M32 10 L38 22 L32 34 L26 22 Z" fill="#FFC93C"/>
+            <circle cx="25" cy="34" r="5" fill="#fff"/><circle cx="39" cy="34" r="5" fill="#fff"/>
+            <circle cx="25" cy="34" r="2.2" fill="#1B2A4A"/><circle cx="39" cy="34" r="2.2" fill="#1B2A4A"/>
+          </svg>
+        </div>
+      </div>
+      <div class="lg:col-span-3 text-center lg:text-left">
+        <p class="font-display text-xs tracking-widest text-coral font-bold uppercase mb-2">আমাদের গল্প</p>
+        <h2 class="font-display font-extrabold text-3xl md:text-4xl text-navy mb-4">সংক্ষিপ্ত ইতিহাস</h2>
+        <p class="font-body text-navy/75 leading-relaxed text-base">
+          ২০১৮ সালে যাত্রা শুরু করা <span class="font-semibold text-coral">বাংলাদেশ প্রাইভেট মাদ্রাসা ওয়েলফেয়ার সোসাইটি</span> সারাদেশের কওমি ও প্রাইভেট মাদ্রাসাগুলোর শিক্ষার্থীদের মেধা বিকাশে নিরলসভাবে কাজ করে যাচ্ছে। প্রতি বছর হাজারো শিক্ষার্থী এই বৃত্তি পরীক্ষায় অংশগ্রহণ করে নিজেদের যোগ্যতা প্রমাণ করছে এবং শিক্ষাক্ষেত্রে উৎসাহ পাচ্ছে।
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center mb-10">
+      <p class="font-display text-xs tracking-widest text-coral font-bold uppercase mb-2">পরিচালনা পর্ষদ</p>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-navy">পরিচালনা পর্ষদের সদস্যবৃন্দ</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card-lift bg-white rounded-2xl p-6 text-center border-2 border-navy/5 shadow-sm">
+        <div class="w-16 h-16 mx-auto rounded-full bg-navy text-white font-display font-bold text-xl flex items-center justify-center mb-3">মা</div>
+        <h4 class="font-display font-bold text-navy">মাওলানা আব্দুল করিম</h4>
+        <p class="font-display text-xs text-navy/40 mt-0.5 font-semibold">চেয়ারম্যান</p>
+      </div>
+      <div class="card-lift bg-white rounded-2xl p-6 text-center border-2 border-navy/5 shadow-sm">
+        <div class="w-16 h-16 mx-auto rounded-full bg-sky text-white font-display font-bold text-xl flex items-center justify-center mb-3">রা</div>
+        <h4 class="font-display font-bold text-navy">মুফতি রফিকুল ইসলাম</h4>
+        <p class="font-display text-xs text-navy/40 mt-0.5 font-semibold">সাধারণ সম্পাদক</p>
+      </div>
+      <div class="card-lift bg-white rounded-2xl p-6 text-center border-2 border-navy/5 shadow-sm">
+        <div class="w-16 h-16 mx-auto rounded-full bg-sun text-navy font-display font-bold text-xl flex items-center justify-center mb-3">সা</div>
+        <h4 class="font-display font-bold text-navy">হাফেজ সাইফুল ইসলাম</h4>
+        <p class="font-display text-xs text-navy/40 mt-0.5 font-semibold">পরীক্ষা নিয়ন্ত্রক</p>
+      </div>
+      <div class="card-lift bg-white rounded-2xl p-6 text-center border-2 border-navy/5 shadow-sm">
+        <div class="w-16 h-16 mx-auto rounded-full bg-coral text-white font-display font-bold text-xl flex items-center justify-center mb-3">নূ</div>
+        <h4 class="font-display font-bold text-navy">মাওলানা নূরুল হক</h4>
+        <p class="font-display text-xs text-navy/40 mt-0.5 font-semibold">কোষাধ্যক্ষ</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER — night sky ================= -->
+<footer id="footer" class="bg-navy text-white pt-16 pb-8 relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="twinkle absolute top-8 left-[8%] w-1.5 h-1.5 bg-white rounded-full"></div>
+    <div class="twinkle absolute top-16 left-[22%] w-1 h-1 bg-white rounded-full" style="animation-delay:.6s"></div>
+    <div class="twinkle absolute top-10 left-[45%] w-1.5 h-1.5 bg-white rounded-full" style="animation-delay:1.1s"></div>
+    <div class="twinkle absolute top-24 left-[62%] w-1 h-1 bg-white rounded-full" style="animation-delay:.3s"></div>
+    <div class="twinkle absolute top-6 left-[78%] w-1.5 h-1.5 bg-white rounded-full" style="animation-delay:1.6s"></div>
+    <div class="twinkle absolute top-20 left-[92%] w-1 h-1 bg-white rounded-full" style="animation-delay:.9s"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-5 md:px-8 relative z-10">
+    <div class="grid md:grid-cols-4 gap-10">
+
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <svg width="36" height="36" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#ffffff1a"/><ellipse cx="32" cy="36" rx="15" ry="14" fill="#FFC93C"/><circle cx="26" cy="34" r="4" fill="#fff"/><circle cx="38" cy="34" r="4" fill="#fff"/><circle cx="26" cy="34" r="1.8" fill="#1B2A4A"/><circle cx="38" cy="34" r="1.8" fill="#1B2A4A"/></svg>
+          <p class="font-display font-bold text-xl">জাতীয় মেধাবৃত্তি পরীক্ষা ২০২৬</p>
+        </div>
+        <p class="font-body text-sm text-white/65 leading-relaxed max-w-sm">
+          বাংলাদেশ প্রাইভেট মাদ্রাসা ওয়েলফেয়ার সোসাইটির উদ্যোগে দেশের প্রতিটি প্রান্তের শিক্ষার্থীদের জন্য একটি নির্ভরযোগ্য মেধা যাচাইয়ের প্ল্যাটফর্ম।
+        </p>
+      </div>
+
+      <div>
+        <p class="font-display text-xs font-bold tracking-widest text-sun uppercase mb-4">কুইক লিংক</p>
+        <ul class="space-y-2.5 font-body text-sm text-white/65">
+          <li><a href="#top" class="hover:text-sun transition-colors">হোম</a></li>
+          <li><a href="#process" class="hover:text-sun transition-colors">প্রক্রিয়া</a></li>
+          <li><a href="#rewards" class="hover:text-sun transition-colors">পুরস্কার</a></li>
+          <li><a href="#rules" class="hover:text-sun transition-colors">নিয়মাবলী</a></li>
+          <li><a href="#history" class="hover:text-sun transition-colors">আর্কাইভ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-display text-xs font-bold tracking-widest text-sun uppercase mb-4">যোগাযোগ</p>
+        <ul class="space-y-2.5 font-body text-sm text-white/65">
+          <li class="flex items-center gap-2">📞 হটলাইন: ০১৭XX-XXXXXX</li>
+          <li class="flex items-center gap-2">✉️ info@medhabritti2026.org</li>
+          <li class="flex items-center gap-2">📍 ঢাকা, বাংলাদেশ</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/10 my-8"></div>
+
+    <p class="text-center font-display text-xs text-white/45">
+      © ২০২৬ বাংলাদেশ প্রাইভেট মাদ্রাসা ওয়েলফেয়ার সোসাইটি — সর্বস্বত্ব সংরক্ষিত।
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Countdown Timer
+  const deadline = new Date("2026-09-15T23:59:59+06:00").getTime();
+
+  function tick(){
+    const now = new Date().getTime();
+    const diff = Math.max(0, deadline - now);
+
+    const days  = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const mins  = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const secs  = Math.floor((diff % (1000*60)) / 1000);
+
+    document.getElementById('cd-days').textContent  = String(days).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+</script>
+</body>
+</html>
