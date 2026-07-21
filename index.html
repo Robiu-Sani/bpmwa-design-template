@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>জাতীয় মেধাবৃত্তি পরীক্ষা ২০২৬</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&family=Fredoka:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          forest:  { DEFAULT: '#0F6B4C', dark: '#0B4E38', light: '#E7F3EC' },
+          gold:    { DEFAULT: '#FFB627', dark: '#E89A00', light: '#FFF3D9' },
+          sky:     { DEFAULT: '#3FB6E8', light: '#E7F7FE' },
+          coral:   { DEFAULT: '#FF6F59', light: '#FFE9E5' },
+          paper:   '#FFF9EE',
+          ink:     '#1B3A34',
+        },
+        fontFamily: {
+          display: ['"Baloo Da 2"', 'sans-serif'],
+          body:    ['"Hind Siliguri"', 'sans-serif'],
+          num:     ['"Fredoka"', 'sans-serif'],
+          ui:      ['"Poppins"', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { background: #FFF9EE; }
+  .font-display { font-family: 'Baloo Da 2', sans-serif; }
+  .font-body { font-family: 'Hind Siliguri', sans-serif; }
+  .font-num { font-family: 'Fredoka', sans-serif; }
+  .font-ui { font-family: 'Poppins', sans-serif; }
+
+  .card-hover { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .card-hover:hover { transform: translateY(-4px); }
+
+  .float-y { animation: floatY 3.2s ease-in-out infinite; }
+  @keyframes floatY { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-10px);} }
+
+  .bird-blink { animation: blink 4.5s infinite; transform-origin:center; }
+  @keyframes blink { 0%,92%,100%{ transform: scaleY(1);} 95%{ transform: scaleY(0.1);} }
+
+  ::selection { background: #FFB627; color: #0B4E38; }
+</style>
+</head>
+<body class="font-body text-ink antialiased">
+
+<!-- ================= NAVBAR ================= -->
+<header class="sticky top-0 z-50 bg-paper/90 backdrop-blur border-b border-forest/10">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
+    <!-- Logo Only -->
+    <a href="#top" class="flex items-center shrink-0 hover:opacity-90 transition-opacity" aria-label="Home Logo">
+      <svg width="48" height="48" viewBox="0 0 64 64" class="drop-shadow-sm">
+        <circle cx="32" cy="32" r="30" fill="#E7F3EC"/>
+        <path d="M20 20 L32 12 L44 20" stroke="#FFB627" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <ellipse cx="32" cy="36" rx="15" ry="14" fill="#0F6B4C"/>
+        <circle cx="26" cy="34" r="4.5" fill="#fff"/>
+        <circle cx="38" cy="34" r="4.5" fill="#fff"/>
+        <circle cx="26" cy="34" r="2" fill="#1B3A34"/>
+        <circle cx="38" cy="34" r="2" fill="#1B3A34"/>
+        <path d="M28 42 Q32 46 36 42" stroke="#FFB627" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M32 22 L32 12 M26 14 L38 14" stroke="#0F6B4C" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </a>
+
+    <!-- Nav Links -->
+    <nav class="hidden lg:flex items-center gap-8 font-display text-base text-ink/80 font-semibold">
+      <a href="#top" class="hover:text-forest transition-colors">হোম</a>
+      <a href="#process" class="hover:text-forest transition-colors">প্রক্রিয়া</a>
+      <a href="#rewards" class="hover:text-forest transition-colors">পুরস্কার</a>
+      <a href="#rules" class="hover:text-forest transition-colors">নিয়মাবলী</a>
+      <a href="#history" class="hover:text-forest transition-colors">আর্কাইভ</a>
+      <a href="#footer" class="hover:text-forest transition-colors">যোগাযোগ</a>
+    </nav>
+
+    <!-- Clean CTA Buttons -->
+    <div class="flex items-center gap-3">
+      <button class="font-ui text-sm font-medium px-4 py-2 rounded-lg text-forest hover:bg-forest/10 transition-colors">
+        লগইন
+      </button>
+      <button class="font-ui text-sm font-semibold bg-forest text-white hover:bg-forest-dark px-5 py-2.5 rounded-lg shadow-sm transition-colors">
+        রেজিস্ট্রেশন
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO SECTION (LEFT-RIGHT LAYOUT) ================= -->
+<section id="top" class="relative overflow-hidden py-12 md:py-20 border-b border-forest/10">
+  <div class="absolute -top-10 -left-16 w-72 h-72 bg-sky/20 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute top-24 -right-10 w-80 h-80 bg-coral/15 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column: Text & Countdown -->
+      <div class="lg:col-span-7 text-left">
+        <div class="inline-flex items-center gap-2 bg-forest/10 text-forest font-ui text-xs md:text-sm px-4 py-1.5 rounded-full mb-6 font-semibold">
+          <span class="w-2 h-2 rounded-full bg-forest"></span>
+          আয়োজনে: বাংলাদেশ প্রাইভেট মাদ্রাসা ওয়েলফেয়ার সোসাইটি
+        </div>
+
+        <h1 class="font-display font-extrabold text-forest-dark text-4xl sm:text-5xl lg:text-6xl leading-tight">
+          জাতীয় মেধাবৃত্তি পরীক্ষা <span class="text-gold-dark">২০২৬</span>
+        </h1>
+
+        <p class="font-body text-ink/80 text-base md:text-lg mt-4 max-w-xl">
+          প্রাথমিক, মাধ্যমিক ও মাদ্রাসা পর্যায়ের মেধাবী শিক্ষার্থীদের জন্য দেশব্যাপী বৃত্তি পরীক্ষা — মেধা যাচাই করো, স্বপ্ন পূরণ করো।
+        </p>
+
+        <!-- Countdown -->
+        <div class="mt-8">
+          <p class="font-ui text-xs tracking-wider text-ink/60 mb-3 uppercase font-semibold">রেজিস্ট্রেশন শেষ হতে বাকি</p>
+          <div id="countdown" class="flex flex-wrap gap-3">
+            <div class="bg-white border border-forest/15 rounded-xl px-4 py-3 text-center min-w-[70px] shadow-sm">
+              <p id="cd-days" class="font-num font-bold text-2xl text-forest">00</p>
+              <p class="font-ui text-[11px] text-ink/60 mt-0.5">দিন</p>
+            </div>
+            <div class="bg-white border border-forest/15 rounded-xl px-4 py-3 text-center min-w-[70px] shadow-sm">
+              <p id="cd-hours" class="font-num font-bold text-2xl text-forest">00</p>
+              <p class="font-ui text-[11px] text-ink/60 mt-0.5">ঘণ্টা</p>
+            </div>
+            <div class="bg-white border border-forest/15 rounded-xl px-4 py-3 text-center min-w-[70px] shadow-sm">
+              <p id="cd-mins" class="font-num font-bold text-2xl text-forest">00</p>
+              <p class="font-ui text-[11px] text-ink/60 mt-0.5">মিনিট</p>
+            </div>
+            <div class="bg-forest text-white rounded-xl px-4 py-3 text-center min-w-[70px] shadow-sm">
+              <p id="cd-secs" class="font-num font-bold text-2xl">00</p>
+              <p class="font-ui text-[11px] text-white/80 mt-0.5">সেকেন্ড</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clean Action Buttons -->
+        <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <a href="#process" class="inline-flex items-center justify-center font-display font-bold text-base bg-forest text-white hover:bg-forest-dark px-8 py-3.5 rounded-lg shadow-sm transition-all hover:shadow-md">
+            এখনই রেজিস্ট্রেশন করুন →
+          </a>
+          <span class="font-ui text-xs text-ink/60">ফি মাত্র ১০০ টাকা · বিকাশ/নগদ/রকেট</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Mascot Visual & Social Proof -->
+      <div class="lg:col-span-5 flex flex-col items-center justify-center">
+        <div class="relative w-full max-w-sm flex flex-col items-center">
+          
+          <!-- Mascot Illustration -->
+          <div class="bg-white/80 backdrop-blur border border-forest/10 p-8 rounded-2xl shadow-sm w-full flex items-center justify-center">
+            <svg width="180" height="180" viewBox="0 0 120 120" class="float-y drop-shadow-md">
+              <ellipse cx="60" cy="106" rx="34" ry="6" fill="#0F6B4C" opacity="0.1"/>
+              <path d="M35 40 L60 22 L85 40" stroke="#FFB627" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="55" y="14" width="10" height="12" rx="2" fill="#0F6B4C"/>
+              <ellipse cx="60" cy="66" rx="28" ry="26" fill="#0F6B4C"/>
+              <ellipse cx="60" cy="66" rx="28" ry="26" fill="url(#g1)" opacity="0.25"/>
+              <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient></defs>
+              <g class="bird-blink">
+                <circle cx="49" cy="62" r="10" fill="#fff"/>
+                <circle cx="71" cy="62" r="10" fill="#fff"/>
+                <circle cx="49" cy="62" r="4.5" fill="#1B3A34"/>
+                <circle cx="71" cy="62" r="4.5" fill="#1B3A34"/>
+              </g>
+              <path d="M56 76 Q60 82 64 76" stroke="#FFB627" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M60 66 L60 74 L52 74 Z" fill="#FF6F59"/>
+              <ellipse cx="24" cy="70" rx="9" ry="15" fill="#0F6B4C" transform="rotate(-25 24 70)"/>
+              <ellipse cx="96" cy="70" rx="9" ry="15" fill="#0F6B4C" transform="rotate(25 96 70)"/>
+            </svg>
+          </div>
+
+          <!-- Social Proof Card -->
+          <div class="mt-4 w-full bg-white border border-forest/10 p-4 rounded-xl shadow-sm flex items-center gap-3">
+            <div class="flex -space-x-2 shrink-0">
+              <div class="w-8 h-8 rounded-full ring-2 ring-white bg-coral flex items-center justify-center text-white font-ui text-xs font-semibold">তা</div>
+              <div class="w-8 h-8 rounded-full ring-2 ring-white bg-sky flex items-center justify-center text-white font-ui text-xs font-semibold">রা</div>
+              <div class="w-8 h-8 rounded-full ring-2 ring-white bg-gold flex items-center justify-center text-forest-dark font-ui text-xs font-semibold">মি</div>
+              <div class="w-8 h-8 rounded-full ring-2 ring-white bg-forest flex items-center justify-center text-white font-ui text-xs font-semibold">+</div>
+            </div>
+            <p class="font-body text-xs text-ink/80 leading-tight">বিগত বছরে <span class="font-bold text-forest">১,০০০+ শিক্ষার্থী</span> পুরস্কৃত হয়েছে! 🎉</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= REGISTRATION PROCESS ================= -->
+<section id="process" class="bg-white py-16 md:py-24 border-b border-forest/10">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+    <div class="text-center mb-12">
+      <p class="font-ui text-xs tracking-widest text-forest font-semibold uppercase mb-2">সহজ চারটি ধাপ</p>
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-forest-dark">রেজিস্ট্রেশন প্রক্রিয়া</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Step 1 -->
+      <div class="card-hover relative bg-paper rounded-2xl p-6 pt-8 border border-forest/10">
+        <div class="absolute -top-4 left-6 w-9 h-9 rounded-lg bg-forest text-white font-num font-semibold text-base flex items-center justify-center shadow-sm">১</div>
+        <div class="text-3xl mb-3">📝</div>
+        <h3 class="font-display font-semibold text-lg text-forest-dark mb-1">ফর্ম পূরণ</h3>
+        <p class="font-body text-sm text-ink/70">শিক্ষার্থীর তথ্য দিয়ে অনলাইন ফর্ম পূরণ করো</p>
+      </div>
+      <!-- Step 2 -->
+      <div class="card-hover relative bg-paper rounded-2xl p-6 pt-8 border border-forest/10">
+        <div class="absolute -top-4 left-6 w-9 h-9 rounded-lg bg-sky text-white font-num font-semibold text-base flex items-center justify-center shadow-sm">২</div>
+        <div class="text-3xl mb-3">💳</div>
+        <h3 class="font-display font-semibold text-lg text-forest-dark mb-1">ফি প্রদান</h3>
+        <p class="font-body text-sm text-ink/70">বিকাশ, নগদ বা রকেটে সহজে ফি জমা দাও</p>
+      </div>
+      <!-- Step 3 -->
+      <div class="card-hover relative bg-paper rounded-2xl p-6 pt-8 border border-forest/10">
+        <div class="absolute -top-4 left-6 w-9 h-9 rounded-lg bg-gold text-forest-dark font-num font-semibold text-base flex items-center justify-center shadow-sm">৩</div>
+        <div class="text-3xl mb-3">🎫</div>
+        <h3 class="font-display font-semibold text-lg text-forest-dark mb-1">এডমিট কার্ড</h3>
+        <p class="font-body text-sm text-ink/70">নিজের এডমিট কার্ড ডাউনলোড করে প্রিন্ট করো</p>
+      </div>
+      <!-- Step 4 -->
+      <div class="card-hover relative bg-paper rounded-2xl p-6 pt-8 border border-forest/10">
+        <div class="absolute -top-4 left-6 w-9 h-9 rounded-lg bg-coral text-white font-num font-semibold text-base flex items-center justify-center shadow-sm">৪</div>
+        <div class="text-3xl mb-3">🏫</div>
+        <h3 class="font-display font-semibold text-lg text-forest-dark mb-1">পরীক্ষায় অংশগ্রহণ</h3>
+        <p class="font-body text-sm text-ink/70">নির্ধারিত কেন্দ্রে গিয়ে সরাসরি পরীক্ষা দাও</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATEGORIES & REWARDS ================= -->
+<section id="rewards" class="bg-forest-light/40 py-16 md:py-24 border-b border-forest/10">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+    <div class="text-center mb-12">
+      <p class="font-ui text-xs tracking-widest text-forest font-semibold uppercase mb-2">বিভাগ অনুযায়ী</p>
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-forest-dark">পরীক্ষার বিভাগ ও পুরস্কার</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Category 1 -->
+      <div class="card-hover bg-white rounded-2xl p-6 border border-forest/10 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-coral-light flex items-center justify-center text-2xl mb-4">🌱</div>
+        <h3 class="font-display font-bold text-xl text-forest-dark mb-0.5">ইবতেদায়ী / প্রাথমিক</h3>
+        <p class="font-ui text-xs text-ink/50 mb-4 font-medium">৩য় - ৫ম শ্রেণি</p>
+        <ul class="space-y-2.5 font-body text-sm text-ink/80">
+          <li class="flex items-center gap-2"><span>🏆</span> ১ম স্থান: নগদ ৫,০০০৳ + ট্রফি</li>
+          <li class="flex items-center gap-2"><span>🥈</span> ২য় স্থান: নগদ ৩,০০০৳ + মেডেল</li>
+          <li class="flex items-center gap-2"><span>🥉</span> ৩য় স্থান: নগদ ২,০০০৳ + মেডেল</li>
+          <li class="flex items-center gap-2"><span>📜</span> সকলের জন্য মেধা সনদ</li>
+        </ul>
+      </div>
+
+      <!-- Category 2 (highlighted clean card) -->
+      <div class="card-hover bg-forest text-white rounded-2xl p-6 shadow-md relative">
+        <div class="absolute top-4 right-4 bg-gold text-forest-dark text-[10px] font-ui font-bold px-2.5 py-0.5 rounded-full uppercase">জনপ্রিয়</div>
+        <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-2xl mb-4">🌿</div>
+        <h3 class="font-display font-bold text-xl mb-0.5">জুনিয়র শাখা</h3>
+        <p class="font-ui text-xs text-white/70 mb-4 font-medium">৬ষ্ঠ - ৮ম শ্রেণি</p>
+        <ul class="space-y-2.5 font-body text-sm text-white/90">
+          <li class="flex items-center gap-2"><span>🏆</span> ১ম স্থান: নগদ ৮,০০০৳ + ট্রফি</li>
+          <li class="flex items-center gap-2"><span>🥈</span> ২য় স্থান: নগদ ৫,০০০৳ + মেডেল</li>
+          <li class="flex items-center gap-2"><span>🥉</span> ৩য় স্থান: নগদ ৩,৫০০৳ + মেডেল</li>
+          <li class="flex items-center gap-2"><span>📜</span> সকলের জন্য মেধা সনদ</li>
+        </ul>
+      </div>
+
+      <!-- Category 3 -->
+      <div class="card-hover bg-white rounded-2xl p-6 border border-forest/10 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-sky-light flex items-center justify-center text-2xl mb-4">🌳</div>
+        <h3 class="font-display font-bold text-xl text-forest-dark mb-0.5">সিনিয়র শাখা</h3>
+        <p class="font-ui text-xs text-ink/50 mb-4 font-medium">৯ম - ১০ম শ্রেণি / দাখিল</p>
+        <ul class="space-y-2.5 font-body text-sm text-ink/80">
+          <li class="flex items-center gap-2"><span>🏆</span> ১ম স্থান: নগদ ১২,০০০৳ + ট্রফি</li>
+          <li class="flex items-center gap-2"><span>🥈</span> ২য় স্থান: নগদ ৮,০০০৳ + মেডেল</li>
+          <li class="flex items-center gap-2"><span>🥉</span> ৩য় স্থান: নগদ ৫,০০০৳ + মেডেল</li>
+          <li class="flex items-center gap-2"><span>📜</span> সকলের জন্য মেধা সনদ</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= RULES ================= -->
+<section id="rules" class="bg-white py-16 md:py-24 border-b border-forest/10">
+  <div class="max-w-5xl mx-auto px-5 md:px-8">
+    <div class="text-center mb-12">
+      <p class="font-ui text-xs tracking-widest text-forest font-semibold uppercase mb-2">অংশগ্রহণের আগে জেনে নাও</p>
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-forest-dark">সংক্ষিপ্ত নিয়মাবলী</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div class="flex gap-4 items-start bg-paper border border-forest/10 rounded-xl p-5">
+        <span class="text-2xl">⏰</span>
+        <p class="font-body text-sm text-ink/80">পরীক্ষার সময়সীমা <span class="font-semibold text-forest">১ ঘণ্টা</span>, মোট ৫০টি MCQ প্রশ্ন থাকবে।</p>
+      </div>
+      <div class="flex gap-4 items-start bg-paper border border-forest/10 rounded-xl p-5">
+        <span class="text-2xl">🪪</span>
+        <p class="font-body text-sm text-ink/80">পরীক্ষার দিন অবশ্যই <span class="font-semibold text-forest">এডমিট কার্ড</span> সাথে আনতে হবে।</p>
+      </div>
+      <div class="flex gap-4 items-start bg-paper border border-forest/10 rounded-xl p-5">
+        <span class="text-2xl">✍️</span>
+        <p class="font-body text-sm text-ink/80">প্রশ্নপত্র হবে সাধারণ জ্ঞান, বাংলা, ইংরেজি, গণিত ও ইসলামিক শিক্ষা থেকে।</p>
+      </div>
+      <div class="flex gap-4 items-start bg-paper border border-forest/10 rounded-xl p-5">
+        <span class="text-2xl">🔒</span>
+        <p class="font-body text-sm text-ink/80">একজন শিক্ষার্থী শুধুমাত্র <span class="font-semibold text-forest">একবার</span> রেজিস্ট্রেশন করতে পারবে।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HISTORY & BOARD ================= -->
+<section id="history" class="bg-forest-light/40 py-16 md:py-24 border-b border-forest/10">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+
+    <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center mb-16">
+      <div class="lg:col-span-2 flex justify-center">
+        <div class="w-48 h-48 rounded-2xl bg-white border border-forest/10 flex items-center justify-center shadow-sm">
+          <svg width="80" height="80" viewBox="0 0 64 64"><ellipse cx="32" cy="36" rx="18" ry="17" fill="#0F6B4C"/><path d="M18 22 L32 12 L46 22" stroke="#FFB627" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="34" r="5" fill="#fff"/><circle cx="39" cy="34" r="5" fill="#fff"/><circle cx="25" cy="34" r="2.2" fill="#1B3A34"/><circle cx="39" cy="34" r="2.2" fill="#1B3A34"/></svg>
+        </div>
+      </div>
+      <div class="lg:col-span-3 text-center lg:text-left">
+        <p class="font-ui text-xs tracking-widest text-forest font-semibold uppercase mb-2">আমাদের গল্প</p>
+        <h2 class="font-display font-bold text-3xl md:text-4xl text-forest-dark mb-4">সংক্ষিপ্ত ইতিহাস</h2>
+        <p class="font-body text-ink/80 leading-relaxed text-base">
+          ২০১৮ সালে যাত্রা শুরু করা <span class="font-semibold text-forest">বাংলাদেশ প্রাইভেট মাদ্রাসা ওয়েলফেয়ার সোসাইটি</span> সারাদেশের কওমি ও প্রাইভেট মাদ্রাসাগুলোর শিক্ষার্থীদের মেধা বিকাশে নিরলসভাবে কাজ করে যাচ্ছে। প্রতি বছর হাজারো শিক্ষার্থী এই বৃত্তি পরীক্ষায় অংশগ্রহণ করে নিজেদের যোগ্যতা প্রমাণ করছে এবং শিক্ষাক্ষেত্রে উৎসাহ পাচ্ছে।
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center mb-10">
+      <p class="font-ui text-xs tracking-widest text-forest font-semibold uppercase mb-2">পরিচালনা পর্ষদ</p>
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-forest-dark">পরিচালনা পর্ষদের সদস্যবৃন্দ</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card-hover bg-white rounded-2xl p-6 text-center border border-forest/10 shadow-sm">
+        <div class="w-16 h-16 mx-auto rounded-full bg-forest text-white font-display font-bold text-xl flex items-center justify-center mb-3">মা</div>
+        <h4 class="font-display font-semibold text-forest-dark">মাওলানা আব্দুল করিম</h4>
+        <p class="font-ui text-xs text-ink/50 mt-0.5 font-medium">চেয়ারম্যান</p>
+      </div>
+      <div class="card-hover bg-white rounded-2xl p-6 text-center border border-forest/10 shadow-sm">
+        <div class="w-16 h-16 mx-auto rounded-full bg-sky text-white font-display font-bold text-xl flex items-center justify-center mb-3">রা</div>
+        <h4 class="font-display font-semibold text-forest-dark">মুফতি রফিকুল ইসলাম</h4>
+        <p class="font-ui text-xs text-ink/50 mt-0.5 font-medium">সাধারণ সম্পাদক</p>
+      </div>
+      <div class="card-hover bg-white rounded-2xl p-6 text-center border border-forest/10 shadow-sm">
+        <div class="w-16 h-16 mx-auto rounded-full bg-gold text-forest-dark font-display font-bold text-xl flex items-center justify-center mb-3">সা</div>
+        <h4 class="font-display font-semibold text-forest-dark">হাফেজ সাইফুল ইসলাম</h4>
+        <p class="font-ui text-xs text-ink/50 mt-0.5 font-medium">পরীক্ষা নিয়ন্ত্রক</p>
+      </div>
+      <div class="card-hover bg-white rounded-2xl p-6 text-center border border-forest/10 shadow-sm">
+        <div class="w-16 h-16 mx-auto rounded-full bg-coral text-white font-display font-bold text-xl flex items-center justify-center mb-3">নূ</div>
+        <h4 class="font-display font-semibold text-forest-dark">মাওলানা নূরুল হক</h4>
+        <p class="font-ui text-xs text-ink/50 mt-0.5 font-medium">কোষাধ্যক্ষ</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="footer" class="bg-forest-dark text-white pt-16 pb-8">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+    <div class="grid md:grid-cols-4 gap-10">
+
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <svg width="36" height="36" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#ffffff22"/><ellipse cx="32" cy="36" rx="15" ry="14" fill="#FFB627"/><circle cx="26" cy="34" r="4" fill="#fff"/><circle cx="38" cy="34" r="4" fill="#fff"/><circle cx="26" cy="34" r="1.8" fill="#0B4E38"/><circle cx="38" cy="34" r="1.8" fill="#0B4E38"/></svg>
+          <p class="font-display font-bold text-xl">জাতীয় মেধাবৃত্তি পরীক্ষা ২০২৬</p>
+        </div>
+        <p class="font-body text-sm text-white/70 leading-relaxed max-w-sm">
+          বাংলাদেশ প্রাইভেট মাদ্রাসা ওয়েলফেয়ার সোসাইটির উদ্যোগে দেশের প্রতিটি প্রান্তের শিক্ষার্থীদের জন্য একটি নির্ভরযোগ্য মেধা যাচাইয়ের প্ল্যাটফর্ম।
+        </p>
+      </div>
+
+      <div>
+        <p class="font-ui text-xs font-semibold tracking-widest text-gold uppercase mb-4">কুইক লিংক</p>
+        <ul class="space-y-2.5 font-body text-sm text-white/70">
+          <li><a href="#top" class="hover:text-gold transition-colors">হোম</a></li>
+          <li><a href="#process" class="hover:text-gold transition-colors">প্রক্রিয়া</a></li>
+          <li><a href="#rewards" class="hover:text-gold transition-colors">পুরস্কার</a></li>
+          <li><a href="#rules" class="hover:text-gold transition-colors">নিয়মাবলী</a></li>
+          <li><a href="#history" class="hover:text-gold transition-colors">আর্কাইভ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-ui text-xs font-semibold tracking-widest text-gold uppercase mb-4">যোগাযোগ</p>
+        <ul class="space-y-2.5 font-body text-sm text-white/70">
+          <li class="flex items-center gap-2">📞 হটলাইন: ০১৭XX-XXXXXX</li>
+          <li class="flex items-center gap-2">✉️ info@medhabritti2026.org</li>
+          <li class="flex items-center gap-2">📍 ঢাকা, বাংলাদেশ</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/10 my-8"></div>
+
+    <p class="text-center font-ui text-xs text-white/50">
+      © ২০২৬ বাংলাদেশ প্রাইভেট মাদ্রাসা ওয়েলফেয়ার সোসাইটি — সর্বস্বত্ব সংরক্ষিত।
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Countdown Timer
+  const deadline = new Date("2026-09-15T23:59:59+06:00").getTime();
+
+  function tick(){
+    const now = new Date().getTime();
+    const diff = Math.max(0, deadline - now);
+
+    const days  = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const mins  = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const secs  = Math.floor((diff % (1000*60)) / 1000);
+
+    document.getElementById('cd-days').textContent  = String(days).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+</script>
+</body>
+</html>
